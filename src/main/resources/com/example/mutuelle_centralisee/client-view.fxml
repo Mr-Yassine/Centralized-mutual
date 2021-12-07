@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mutuelle_centralisee.Controller">
    <left>
       <AnchorPane prefHeight="330.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
    </left>
@@ -25,6 +25,10 @@
    <top>
       <TabPane prefHeight="647.0" prefWidth="740.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
+
+
+
+
           <Tab text="Ajouter Client">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="473.0" prefWidth="740.0">
@@ -33,27 +37,32 @@
                            <children>
                               <AnchorPane layoutX="33.0" layoutY="10.0" prefHeight="514.0" prefWidth="660.0">
                                  <children>
-                                    <TextField layoutX="34.0" layoutY="36.0" prefHeight="28.0" prefWidth="234.0" promptText="Nom" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
-                                    <TextField layoutX="391.0" layoutY="36.0" prefWidth="234.0" promptText="Prénom" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
-                                    <TextField layoutX="111.0" layoutY="111.0" prefHeight="28.0" prefWidth="157.0" promptText="Téléphone" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
-                                    <TextField layoutX="391.0" layoutY="111.0" prefWidth="234.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
-                                    <TextField layoutX="391.0" layoutY="244.0" prefWidth="234.0" promptText="Numéro" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
-                                    <TextField layoutX="34.0" layoutY="340.0" prefHeight="28.0" prefWidth="234.0" promptText="Nom d’entreprise" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
-                                    <Button layoutX="269.0" layoutY="411.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #6479FE;" text="Submit" textFill="WHITE">
+                                    <TextField fx:id="nom" layoutX="34.0" layoutY="36.0" prefHeight="28.0" prefWidth="234.0" promptText="Nom" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
+                                    <TextField fx:id="prenom" layoutX="391.0" layoutY="36.0" prefWidth="234.0" promptText="Prénom" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
+                                    <TextField fx:id="tel" layoutX="111.0" layoutY="111.0" prefHeight="28.0" prefWidth="157.0" promptText="Téléphone" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
+                                    <TextField fx:id="email" layoutX="391.0" layoutY="111.0" prefWidth="234.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
+                                    <TextField fx:id="id" layoutX="391.0" layoutY="244.0" prefWidth="234.0" promptText="Numéro" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
+                                    <TextField fx:id="entreprise" layoutX="34.0" layoutY="340.0" prefHeight="28.0" prefWidth="234.0" promptText="Nom d’entreprise" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
+
+                                     <Button fx:id="submit" layoutX="269.0" layoutY="411.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #6479FE;" text="Submit" textFill="WHITE">
                                        <font>
                                           <Font name="Berlin Sans FB" size="19.0" />
                                        </font>
-                                    </Button>
-                                    <DatePicker layoutX="391.0" layoutY="341.0" prefHeight="26.0" prefWidth="234.0" promptText="Date de début de travail " />
-                                    <TextField layoutX="391.0" layoutY="340.0" prefHeight="26.0" prefWidth="234.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #6479FE;" />
-                                    <ChoiceBox layoutX="34.0" layoutY="111.0" prefHeight="26.0" prefWidth="59.0" style="-fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent;" />
-                                    <TextArea layoutX="34.0" layoutY="198.0" prefHeight="73.0" prefWidth="234.0" promptText="Adresse" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
-                                    <RadioButton layoutX="391.0" layoutY="198.0" mnemonicParsing="false" text="CIN" />
-                                    <RadioButton layoutX="508.0" layoutY="198.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="128.0" text="PassePort" />
+                                     </Button>
+
+
+                                    <DatePicker fx:id="date" layoutX="391.0" layoutY="341.0" prefHeight="26.0" prefWidth="234.0" promptText="Date de début de travail " />
+                                    <TextField layoutX="391.0" layoutY="340.0" prefHeight="28.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #6479FE;" />
+                                    <ChoiceBox fx:id="country_list" layoutX="34.0" layoutY="111.0" prefHeight="26.0" prefWidth="59.0" style="-fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent;" />
+                                    <TextArea fx:id="adresse" layoutX="34.0" layoutY="198.0" prefHeight="73.0" prefWidth="234.0" promptText="Adresse" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
+                                    <RadioButton fx:id="cin" layoutX="391.0" layoutY="198.0" mnemonicParsing="false" text="CIN" />
+                                    <RadioButton fx:id="pass" layoutX="508.0" layoutY="198.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="128.0" text="PassePort" />
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
+
+
                         <AnchorPane layoutX="201.0" layoutY="14.0" prefHeight="59.0" prefWidth="338.0">
                            <children>
                               <Text layoutX="60.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Client">
@@ -63,10 +72,18 @@
                               </Text>
                            </children>
                         </AnchorPane>
+
+
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
+
+
+
+
+
+
           <Tab text="Nos Client">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -91,6 +108,10 @@
                   </AnchorPane>
             </content>
           </Tab>
+
+
+
+
         </tabs>
       </TabPane>
    </top>

@@ -27,7 +27,7 @@ public class MutualApplication extends Application {
         stg = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(MutualApplication.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 832, 500);
-        stage.setTitle("Login");
+        stage.setTitle("Mutual Application");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

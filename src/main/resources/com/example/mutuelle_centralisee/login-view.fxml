@@ -48,7 +48,7 @@
 
 
             
-            <Label fx:id="message" layoutX="282.0" layoutY="117.0" prefHeight="18.0" />
+            <Label fx:id="message" layoutX="274.0" layoutY="120.0" prefHeight="18.0" />
             <Text layoutX="117.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
                <font>
                   <Font name="Berlin Sans FB" size="17.0" />

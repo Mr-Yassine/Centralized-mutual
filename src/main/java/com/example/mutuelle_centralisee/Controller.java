@@ -4,15 +4,13 @@ import java.io.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
@@ -24,6 +22,7 @@ import org.json.simple.parser.ParseException;
 
 public class Controller {
 
+    //Login Attributes
     @FXML
     private Button button;
     @FXML
@@ -37,9 +36,46 @@ public class Controller {
 
 
 
+
+
+
+    //Client Attributes
+    @FXML
+    private Button submit;
+    @FXML
+    private TextField id;
+    @FXML
+    private TextField nom;
+    @FXML
+    private TextField prenom;
+    @FXML
+    private ChoiceBox<String> country_list=new ChoiceBox<String>();
+    @FXML
+    private TextField tel;
+    @FXML
+    private TextField entreprise;
+    @FXML
+    private TextArea Adresse;
+    @FXML
+    private DatePicker date;
+    @FXML
+    private RadioButton cin;
+    @FXML
+    private RadioButton pass;
+
+
+
+
+
     public void userLogIn(ActionEvent event) throws IOException {
         checkLogin();
     }
+    public void client(ActionEvent event) throws IOException {
+        addClient();
+    }
+
+
+
 
 
 
@@ -73,7 +109,7 @@ public class Controller {
                     break;
                 } else if (email.equals(this.email.getText()) && password.equals(this.password.getText())) {
                     message.setText("Success!");
-                    m.changeScene("Client-view.fxml");
+                    m.changeScene("client-view.fxml");
                     break;
                 } else {
                     message.setText("Wrong email or password");
@@ -82,6 +118,56 @@ public class Controller {
 
 
         } catch (FileNotFoundException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+    public void addClient() {
+
+        Client client = new Client();
+
+
+        ArrayList<String> myClients = new ArrayList<String>();
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+    public void initialize(){
+
+        JSONParser jsonParser = new JSONParser();
+
+
+
+        try (FileReader reader = new FileReader("D:\\Java Project\\Mutuelle centralisee\\src\\main\\resources\\JSON\\Code Pays.json"))
+        {
+            //Read JSON file
+            Object obj = jsonParser.parse(reader);
+            JSONArray country = (JSONArray) obj;
+
+
+            for (Object o : country) {
+                JSONObject country_obj = (JSONObject) o;
+                String country_code = (String) country_obj.get("dial_code");
+//System.out.println(country_code);
+                country_list.getItems().add(country_code);
+            }
+
+
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }

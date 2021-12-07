@@ -5,8 +5,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Date;
 
 public class Client {
+
 
 
 
@@ -19,6 +21,9 @@ public class Client {
         stage.setResizable(false);
         stage.show();
     }
+
+
+
 
 
 }
