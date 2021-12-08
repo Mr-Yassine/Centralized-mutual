@@ -1,5 +1,6 @@
 package com.example.mutuelle_centralisee;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,21 +16,27 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
 public class ClientController implements Initializable {
 
-    @FXML private TableView dataGrid;
-    @FXML private TableColumn col_entreprise;
-    @FXML private TableColumn col_date;
-    @FXML private TableColumn col_nom;
-    @FXML private TableColumn col_prenom;
-    @FXML private TableColumn col_id;
-    @FXML private TableColumn col_tel;
-    @FXML private TableColumn col_email;
-    @FXML private TableColumn col_adresse;
+    @FXML private TableView<Client> dataGrid;
+
+
+
+
+    @FXML private TableColumn<Client, String>  col_id;
+    @FXML private TableColumn<Client, String>  col_nom;
+    @FXML private TableColumn<Client, String>  col_prenom;
+    @FXML private TableColumn<Client, String>  col_tel;
+    @FXML private TableColumn<Client, String>  col_email;
+    @FXML private TableColumn<Client, String>  col_adresse;
+    @FXML private TableColumn<Client, String> col_entreprise;
+    @FXML private TableColumn<Client, String>  col_date;
 
 
 
@@ -44,13 +51,15 @@ public class ClientController implements Initializable {
     @FXML private TextField entreprise;
     @FXML private TextArea adresse;
     @FXML private DatePicker date;
-    @FXML private RadioButton cin;
-    @FXML private RadioButton pass;
-    @FXML private TextField cinpass;
     @FXML private ToggleGroup choix;
 
+
+
+    Client client = new Client();
     ObservableList<ArrayList> myClients = FXCollections.observableArrayList();
-    //ArrayList myClients = new ArrayList();
+    ArrayList<Client> clientsG = new ArrayList<Client>();
+
+
 
 
 
@@ -60,14 +69,11 @@ public class ClientController implements Initializable {
 
         JSONParser jsonParser = new JSONParser();
 
-
-
         try (FileReader reader = new FileReader("D:\\Java Project\\Mutuelle centralisee\\src\\main\\resources\\JSON\\Code Pays.json"))
         {
             //Read JSON file
             Object obj = jsonParser.parse(reader);
             JSONArray country = (JSONArray) obj;
-
 
             for (Object o : country) {
                 JSONObject country_obj = (JSONObject) o;
@@ -81,25 +87,7 @@ public class ClientController implements Initializable {
             e.printStackTrace();
         }
 
-
-
-
-
-
-        col_entreprise.setCellValueFactory(new PropertyValueFactory<ArrayList, String>("entreprise"));
-        col_date.setCellValueFactory(new PropertyValueFactory<ArrayList, String>("date"));
-        col_prenom.setCellValueFactory(new PropertyValueFactory<ArrayList, String>("prenom"));
-        col_nom.setCellValueFactory(new PropertyValueFactory<ArrayList, String>("nom"));
-        col_id.setCellValueFactory(new PropertyValueFactory<ArrayList, String>("id"));
-        col_tel.setCellValueFactory(new PropertyValueFactory<ArrayList, String>("tel"));
-        col_email.setCellValueFactory(new PropertyValueFactory<ArrayList, String>("email"));
-        col_adresse.setCellValueFactory(new PropertyValueFactory<ArrayList, String>("adress"));
-
-        dataGrid.setItems(myClients);
     }
-
-
-
 
 
 
@@ -109,15 +97,17 @@ public class ClientController implements Initializable {
         addClient();
     }
 
+
+
+
     //Add client function
     public void addClient() {
-
-        Client client = new Client();
-        ArrayList cl = new ArrayList();
 
 
         RadioButton selectedRadioButton = (RadioButton) choix.getSelectedToggle();
         String toogleGroupValue = selectedRadioButton.getText();
+
+
 
         client.setId(this.id.getText());
         client.setNom(this.nom.getText());
@@ -125,41 +115,48 @@ public class ClientController implements Initializable {
         client.setAdresse(this.adresse.getText());
         client.setEmail(this.email.getText());
         client.setEntreprise(this.entreprise.getText());
-        client.setTel(this.tel.getText());
+        client.setTel("(" + this.country_list.getSelectionModel().getSelectedItem() +") "+ this.tel.getText());
         client.setDate(this.date.getValue());
-        client.setCountry_list(this.date.getEditor().getText());
+        //client.setCountry_list(this.country_list.getSelectionModel().getSelectedItem());
+
+        clientsG.add(client);
 
 
 
+        col_id.setCellValueFactory(new PropertyValueFactory<Client, String>("id"));
+        col_nom.setCellValueFactory(new PropertyValueFactory<Client, String>("nom"));
+        col_prenom.setCellValueFactory(new PropertyValueFactory<Client, String>("prenom"));
+        col_tel.setCellValueFactory(new PropertyValueFactory<Client, String>("tel"));
+        col_email.setCellValueFactory(new PropertyValueFactory<Client, String>("email"));
+        col_adresse.setCellValueFactory(new PropertyValueFactory<Client, String>("Adresse"));
+        col_entreprise.setCellValueFactory(new PropertyValueFactory<Client, String>("entreprise"));
+        col_date.setCellValueFactory(new PropertyValueFactory<Client, String>("date"));
 
-        cl.add(client.getNom());
-        cl.add(client.getPrenom());
-        cl.add(client.getId());
-        cl.add(client.getDate());
-        cl.add(client.getTel());
-        cl.add(client.getCountry_list());
-        cl.add(client.getAdresse());
-        cl.add(client.getEntreprise());
-        cl.add(client.getEmail());
-
-
-        myClients.add(cl);
+        dataGrid.getItems().setAll(clientsG);
 
 
 
-/*
+        ViderTable();
 
-*/
 
-        showClient();
 
     }
 
 
+    public void ViderTable() {
 
-    public void showClient(){
-        System.out.println(myClients);
+        this.id.setText("");
+        this.nom.setText("");
+        this.prenom.setText("");
+        this.country_list.setValue(null);
+        this.tel.setText("");
+        this.email.setText("");
+        this.adresse.setText("");
+        this.entreprise.setText("");
+        this.date.setValue(null);
+
+
+
     }
-
 
 }

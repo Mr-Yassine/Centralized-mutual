@@ -18,13 +18,23 @@ public class Client {
     private String entreprise;
     private String Adresse;
     private LocalDate date;
-    private String cin;
-    private String pass;
     private String email;
 
 
 
     public Client(){}
+
+    public Client(String nom, String prenom, String id, String email, String country_list, String tel, String entreprise, String Adresse, LocalDate date){
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.tel = tel;
+        this.entreprise = entreprise;
+        this.Adresse = Adresse;
+        this.date = date;
+        this.country_list = country_list;
+    }
 
     public Client(String nom, String prenom, String id, String country_list, String tel, String entreprise, String Adresse, LocalDate date, String cin, String pass, String email){
 
@@ -37,8 +47,6 @@ public class Client {
         this.entreprise = entreprise;
         this.Adresse = Adresse;
         this.date = date;
-        this.cin = cin;
-        this.pass = pass;
     }
 
 
@@ -70,9 +78,7 @@ public class Client {
         this.country_list = country_list;
     }
 
-    public String getTel() {
-        return tel;
-    }
+    public String getTel() {return tel;}
     public void setTel(String tel) {
         this.tel = tel;
     }
@@ -98,19 +104,6 @@ public class Client {
         this.date = date;
     }
 
-    public String getCin() {
-        return cin;
-    }
-    public void setCin(String cin) {
-        this.cin = cin;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
 
     public String getEmail() {return email;}
     public void setEmail(String email) {this.email = email;}

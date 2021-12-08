@@ -99,11 +99,11 @@
                                     <TableColumn fx:id="col_id" prefWidth="75.0" text="Identité" />
                                     <TableColumn fx:id="col_nom" prefWidth="75.0" text="Nom" />
                                     <TableColumn fx:id="col_prenom" prefWidth="75.0" text="Prénom" />
-                                    <TableColumn fx:id="col_tel" prefWidth="75.0" text="Téléphone" />
-                                    <TableColumn fx:id="col_email" prefWidth="75.0" text="Email" />
-                                    <TableColumn fx:id="col_adresse" prefWidth="75.0" text="Adresse" />
-                                    <TableColumn fx:id="col_entreprise" prefWidth="119.20001220703125" text="Nom d’entreprise" />
-                                    <TableColumn fx:id="col_date" prefWidth="147.20000000000005" text="Date de début de travail" />
+                                    <TableColumn fx:id="col_tel" prefWidth="105.5999755859375" text="Téléphone" />
+                                    <TableColumn fx:id="col_email" prefWidth="100.800048828125" text="Email" />
+                                    <TableColumn fx:id="col_adresse" prefWidth="117.60000610351562" text="Adresse" />
+                                    <TableColumn fx:id="col_entreprise" prefWidth="72.79998779296875" text="Nom d’entreprise" />
+                                    <TableColumn fx:id="col_date" prefWidth="99.2000732421875" text="Date de début de travail" />
                                  </columns>
                               </TableView>
                            </children>
