@@ -95,20 +95,19 @@ public class ClientController implements Initializable {
 
 
 
-    public void client(ActionEvent event) throws IOException {
-        addClient();
-    }
+
+
+
+
 
 
 
 
     //Add client function
-    public void addClient() {
+    public void addClient(ActionEvent event) throws IOException {
 
 
         RadioButton selectedRadioButton = (RadioButton) choix.getSelectedToggle();
-        String toogleGroupValue = selectedRadioButton.getText();
-
 
 
         if (Validation()) {
@@ -140,7 +139,7 @@ public class ClientController implements Initializable {
 
 
 
-            ViderTable();
+            ClearTable();
         }
 
 
@@ -149,44 +148,51 @@ public class ClientController implements Initializable {
 
 
 
+
+
+
+
+
+
+
     private boolean Validation() {
-        if(!Helpers.IsValidLength(entreprise.getText(),50)){
-            Helpers.ShowError("Erreur de validation", "Longueur incorrect.", "champ nameCompany.");
+        if(!Helpers.LengthValidation(entreprise.getText(),50)){
+            Helpers.Error("Erreur de validation", "Longueur incorrect.", "champ nameCompany.");
             return  false;
         }
 
-        if(!Helpers.IsValidLength(nom.getText(),50)){
-            Helpers.ShowError("Erreur de validation", "Longueur incorrect.", "champ first name.");
+        if(!Helpers.LengthValidation(nom.getText(),50)){
+            Helpers.Error("Erreur de validation", "Longueur incorrect.", "champ first name.");
             return  false;
         }
 
 
-        if(!Helpers.IsValidLength(prenom.getText(),50)){
-            Helpers.ShowError("Erreur de validation", "Longueur incorrect.", "champ last name.");
+        if(!Helpers.LengthValidation(prenom.getText(),50)){
+            Helpers.Error("Erreur de validation", "Longueur incorrect.", "champ last name.");
             return  false;
         }
 
 
 
         if(cin.isSelected()){
-            if(!Helpers.IsValidCIN(id.getText())){
-                Helpers.ShowError("Erreur de validation", "format CIN incorrect.", "example CIN: AA000000");
+            if(!Helpers.CinValidation(id.getText())){
+                Helpers.Error("Erreur de validation", "format CIN incorrect.", "example CIN: AA000");
                 return  false;
             }
         }else{
-            if(!Helpers.IsValidPASSPORT(id.getText())){
-                Helpers.ShowError("Erreur de validation", "format PASSPORT incorrect.", "example PASSPORT: AA0000000");
+            if(!Helpers.PassValidation(id.getText())){
+                Helpers.Error("Erreur de validation", "format PASSPORT incorrect.", "example PASSPORT: AA00000");
                 return  false;
             }
         }
 
-        if(!Helpers.IsValidPhone(tel.getText())){
-            Helpers.ShowError("Erreur de validation", "format Phone incorrect.", "examples : 600000000 \n 700000000.");
+        if(!Helpers.PhoneValidation(tel.getText())){
+            Helpers.Error("Erreur de validation", "format Phone incorrect.", "examples : 60000 or 70000. ");
             return  false;
         }
 
-        if(!Helpers.IsValidEmail(email.getText())){
-            Helpers.ShowError("Erreur de validation", "format Email incorrect.", "example: nomprenom@domaine.com");
+        if(!Helpers.EmailValidation(email.getText())){
+            Helpers.Error("Erreur de validation", "format Email incorrect.", "example: prenom@domaine.com");
             return  false;
         }
 
@@ -196,7 +202,17 @@ public class ClientController implements Initializable {
     }
 
 
-    public void ViderTable() {
+
+
+
+
+
+
+
+
+
+
+    public void ClearTable() {
 
         this.id.setText("");
         this.nom.setText("");
@@ -207,8 +223,6 @@ public class ClientController implements Initializable {
         this.adresse.setText("");
         this.entreprise.setText("");
         this.date.setValue(null);
-
-
 
     }
 

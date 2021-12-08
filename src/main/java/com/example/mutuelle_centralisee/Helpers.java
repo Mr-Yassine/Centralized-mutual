@@ -4,7 +4,7 @@ import javafx.scene.control.Alert;
 
 public class Helpers {
 
-    public static void ShowError(String title,String headerText,String contentText){
+    public static void Error(String title,String headerText,String contentText){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(headerText);
@@ -15,10 +15,9 @@ public class Helpers {
 
 
 
-    public static void ShowSuccess(String title,String headerText,String contentText){
+    public static void Success(String title,String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
-        alert.setHeaderText(headerText);
         alert.setContentText(contentText);
         alert.showAndWait();
 
@@ -26,27 +25,27 @@ public class Helpers {
 
 
     // Valider la taille :
-    public static boolean IsValidLength(String value,int length){
+    public static boolean LengthValidation(String value,int length){
         return value.length()<=length;
     }
 
     // Valider CIN:
-    public static boolean IsValidCIN(String value){
-        return value.matches("^[a-zA-Z]{2}[0-9]{6}$");
+    public static boolean CinValidation(String value){
+        return value.matches("^[a-zA-Z]{2}[0-9]{3}$");
     }
 
     // Valider Passport :
-    public static boolean IsValidPASSPORT(String value){
-        return value.matches("^[a-zA-Z]{2}[0-9]{7}$");
+    public static boolean PassValidation(String value){
+        return value.matches("^[a-zA-Z]{2}[0-9]{5}$");
     }
 
     // Valider Phone :
-    public static boolean IsValidPhone(String value){
-        return value.matches("^(6|7)[0-9]{8}$");
+    public static boolean PhoneValidation(String value){
+        return value.matches("^(6|7)[0-9]{4}$");
     }
 
     // Valider Email :
-    public static boolean IsValidEmail(String value){
+    public static boolean EmailValidation(String value){
         return value.matches("^[a-zA-Z][a-zA-Z0-9]+@[a-zA-Z][a-zA-Z0-9]+\\.[a-zA-Z]{2,3}$");
     }
 

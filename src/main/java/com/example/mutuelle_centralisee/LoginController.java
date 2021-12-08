@@ -21,12 +21,9 @@ import org.json.simple.parser.ParseException;
 public class LoginController {
 
     //Login Attributes
-    @FXML
-    private TextField email;
-    @FXML
-    private PasswordField password;
-    @FXML
-    private Label message;
+    @FXML private TextField email;
+    @FXML private PasswordField password;
+    @FXML private Label message;
 
 
 
@@ -69,10 +66,12 @@ public class LoginController {
                 if ((this.email.getText().isEmpty() || this.password.getText().isEmpty())) {
                     message.setText("Please fill all the fields");
                     break;
+
                 } else if (email.equals(this.email.getText()) && password.equals(this.password.getText())) {
                     message.setText("Success!");
                     m.changeScene("client-view.fxml");
                     break;
+
                 } else {
                     message.setText("Invalide email or password ,Try again !");
                 }
