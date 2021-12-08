@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -55,8 +56,11 @@
                                     <TextField layoutX="391.0" layoutY="340.0" prefHeight="28.0" prefWidth="210.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #6479FE;" />
                                     <ChoiceBox fx:id="country_list" layoutX="34.0" layoutY="111.0" prefHeight="26.0" prefWidth="59.0" style="-fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: transparent;" />
                                     <TextArea fx:id="adresse" layoutX="34.0" layoutY="198.0" prefHeight="73.0" prefWidth="234.0" promptText="Adresse" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
-                                    <RadioButton fx:id="cin" layoutX="391.0" layoutY="198.0" mnemonicParsing="false" text="CIN" />
-                                    <RadioButton fx:id="pass" layoutX="508.0" layoutY="198.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="128.0" text="PassePort" />
+                                    <RadioButton fx:id="cin" layoutX="391.0" layoutY="198.0" mnemonicParsing="false" selected="true" text="CIN">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="choix" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="pass" layoutX="508.0" layoutY="198.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="128.0" text="PassePort" toggleGroup="$choix" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -90,16 +94,16 @@
                      <children>
                         <AnchorPane layoutX="2.0" layoutY="19.0" prefHeight="579.0" prefWidth="733.0">
                            <children>
-                              <TableView layoutX="7.0" layoutY="14.0" prefHeight="200.0" prefWidth="719.0">
+                              <TableView fx:id="dataGrid" layoutX="7.0" layoutY="14.0" prefHeight="200.0" prefWidth="719.0">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="Identité" />
-                                    <TableColumn prefWidth="75.0" text="Nom" />
-                                    <TableColumn prefWidth="75.0" text="Prénom" />
-                                    <TableColumn prefWidth="75.0" text="Téléphone" />
-                                    <TableColumn prefWidth="75.0" text="Email" />
-                                    <TableColumn prefWidth="75.0" text="Adresse" />
-                                    <TableColumn prefWidth="119.20001220703125" text="Nom d’entreprise" />
-                                    <TableColumn prefWidth="147.20000000000005" text="Date de début de travail" />
+                                    <TableColumn fx:id="col_id" prefWidth="75.0" text="Identité" />
+                                    <TableColumn fx:id="col_nom" prefWidth="75.0" text="Nom" />
+                                    <TableColumn fx:id="col_prenom" prefWidth="75.0" text="Prénom" />
+                                    <TableColumn fx:id="col_tel" prefWidth="75.0" text="Téléphone" />
+                                    <TableColumn fx:id="col_email" prefWidth="75.0" text="Email" />
+                                    <TableColumn fx:id="col_adresse" prefWidth="75.0" text="Adresse" />
+                                    <TableColumn fx:id="col_entreprise" prefWidth="119.20001220703125" text="Nom d’entreprise" />
+                                    <TableColumn fx:id="col_date" prefWidth="147.20000000000005" text="Date de début de travail" />
                                  </columns>
                               </TableView>
                            </children>

@@ -5,20 +5,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Client {
 
 
-    public Client datePicker;
     private String id;
     private String nom;
     private String prenom;
     private String country_list;
-    private int tel;
+    private String tel;
     private String entreprise;
     private String Adresse;
-    private Date date;
+    private LocalDate date;
     private String cin;
     private String pass;
     private String email;
@@ -27,7 +26,7 @@ public class Client {
 
     public Client(){}
 
-    public Client(String nom, String prenom, String id, String country_list, int tel, String entreprise, String Adresse, Date date, String cin, String pass, String email){
+    public Client(String nom, String prenom, String id, String country_list, String tel, String entreprise, String Adresse, LocalDate date, String cin, String pass, String email){
 
         this.id = id;
         this.nom = nom;
@@ -71,10 +70,10 @@ public class Client {
         this.country_list = country_list;
     }
 
-    public int getTel() {
+    public String getTel() {
         return tel;
     }
-    public void setTel(int tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 
@@ -92,10 +91,10 @@ public class Client {
         Adresse = adresse;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
