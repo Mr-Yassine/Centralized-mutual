@@ -116,7 +116,7 @@ public class Client {
     public void start(Stage stage) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(MutualApplication.class.getResource("client-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 740, 647);
+        Scene scene = new Scene(fxmlLoader.load(), 1021, 645);
         stage.setTitle("Add Client");
         stage.setScene(scene);
         stage.setResizable(false);

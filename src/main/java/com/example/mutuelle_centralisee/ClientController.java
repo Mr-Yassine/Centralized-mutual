@@ -52,6 +52,8 @@ public class ClientController implements Initializable {
     @FXML private TextArea adresse;
     @FXML private DatePicker date;
     @FXML private ToggleGroup choix;
+    @FXML private RadioButton cin;
+    @FXML private RadioButton pass;
 
 
 
@@ -109,37 +111,88 @@ public class ClientController implements Initializable {
 
 
 
-        client.setId(this.id.getText());
-        client.setNom(this.nom.getText());
-        client.setPrenom(this.prenom.getText());
-        client.setAdresse(this.adresse.getText());
-        client.setEmail(this.email.getText());
-        client.setEntreprise(this.entreprise.getText());
-        client.setTel("(" + this.country_list.getSelectionModel().getSelectedItem() +") "+ this.tel.getText());
-        client.setDate(this.date.getValue());
-        //client.setCountry_list(this.country_list.getSelectionModel().getSelectedItem());
+        if (Validation()) {
 
-        clientsG.add(client);
+            client.setId(this.id.getText());
+            client.setNom(this.nom.getText());
+            client.setPrenom(this.prenom.getText());
+            client.setAdresse(this.adresse.getText());
+            client.setEmail(this.email.getText());
+            client.setEntreprise(this.entreprise.getText());
+            client.setTel("(" + this.country_list.getSelectionModel().getSelectedItem() +") "+ this.tel.getText());
+            client.setDate(this.date.getValue());
+            //client.setCountry_list(this.country_list.getSelectionModel().getSelectedItem());
 
-
-
-        col_id.setCellValueFactory(new PropertyValueFactory<Client, String>("id"));
-        col_nom.setCellValueFactory(new PropertyValueFactory<Client, String>("nom"));
-        col_prenom.setCellValueFactory(new PropertyValueFactory<Client, String>("prenom"));
-        col_tel.setCellValueFactory(new PropertyValueFactory<Client, String>("tel"));
-        col_email.setCellValueFactory(new PropertyValueFactory<Client, String>("email"));
-        col_adresse.setCellValueFactory(new PropertyValueFactory<Client, String>("Adresse"));
-        col_entreprise.setCellValueFactory(new PropertyValueFactory<Client, String>("entreprise"));
-        col_date.setCellValueFactory(new PropertyValueFactory<Client, String>("date"));
-
-        dataGrid.getItems().setAll(clientsG);
+            clientsG.add(client);
 
 
 
-        ViderTable();
+            col_id.setCellValueFactory(new PropertyValueFactory<Client, String>("id"));
+            col_nom.setCellValueFactory(new PropertyValueFactory<Client, String>("nom"));
+            col_prenom.setCellValueFactory(new PropertyValueFactory<Client, String>("prenom"));
+            col_tel.setCellValueFactory(new PropertyValueFactory<Client, String>("tel"));
+            col_email.setCellValueFactory(new PropertyValueFactory<Client, String>("email"));
+            col_adresse.setCellValueFactory(new PropertyValueFactory<Client, String>("Adresse"));
+            col_entreprise.setCellValueFactory(new PropertyValueFactory<Client, String>("entreprise"));
+            col_date.setCellValueFactory(new PropertyValueFactory<Client, String>("date"));
+
+            dataGrid.getItems().setAll(clientsG);
 
 
 
+            ViderTable();
+        }
+
+
+
+    }
+
+
+
+    private boolean Validation() {
+        if(!Helpers.IsValidLength(entreprise.getText(),50)){
+            Helpers.ShowError("Erreur de validation", "Longueur incorrect.", "champ nameCompany.");
+            return  false;
+        }
+
+        if(!Helpers.IsValidLength(nom.getText(),50)){
+            Helpers.ShowError("Erreur de validation", "Longueur incorrect.", "champ first name.");
+            return  false;
+        }
+
+
+        if(!Helpers.IsValidLength(prenom.getText(),50)){
+            Helpers.ShowError("Erreur de validation", "Longueur incorrect.", "champ last name.");
+            return  false;
+        }
+
+
+
+        if(cin.isSelected()){
+            if(!Helpers.IsValidCIN(id.getText())){
+                Helpers.ShowError("Erreur de validation", "format CIN incorrect.", "example CIN: AA000000");
+                return  false;
+            }
+        }else{
+            if(!Helpers.IsValidPASSPORT(id.getText())){
+                Helpers.ShowError("Erreur de validation", "format PASSPORT incorrect.", "example PASSPORT: AA0000000");
+                return  false;
+            }
+        }
+
+        if(!Helpers.IsValidPhone(tel.getText())){
+            Helpers.ShowError("Erreur de validation", "format Phone incorrect.", "examples : 600000000 \n 700000000.");
+            return  false;
+        }
+
+        if(!Helpers.IsValidEmail(email.getText())){
+            Helpers.ShowError("Erreur de validation", "format Email incorrect.", "example: nomprenom@domaine.com");
+            return  false;
+        }
+
+
+
+        return true;
     }
 
 

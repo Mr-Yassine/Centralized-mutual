@@ -1,4 +1,5 @@
 [
+
 {
 "firstname": "Ahmed",
 "lastname": "Mohammed",
@@ -8,6 +9,17 @@
 "password" : "1230321",
 "entity" : "OMFAM"
 },
+
+  {
+    "firstname": "Yassine",
+    "lastname": "BILAL",
+    "cin": "HH11",
+    "phone" : "+212611221122",
+    "email" : "y@gmail.com",
+    "password" : "123",
+    "entity" : "OMFAM"
+  },
+
 {
 "firstname": "Kamal",
 "lastname": "Bouhfid",

@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mutuelle_centralisee.ClientController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="1021.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mutuelle_centralisee.ClientController">
    <left>
       <AnchorPane prefHeight="330.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
    </left>
@@ -24,17 +24,17 @@
       <AnchorPane prefHeight="200.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
    </right>
    <top>
-      <TabPane prefHeight="647.0" prefWidth="740.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+      <TabPane prefHeight="702.0" prefWidth="786.0" style="-fx-background-color: #FFF9EC;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
         <tabs>
 
 
 
 
-          <Tab text="Ajouter Client">
+          <Tab style="-fx-background-color: #6479FE;" text="Ajouter Client">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="473.0" prefWidth="740.0">
                      <children>
-                        <AnchorPane layoutX="7.0" layoutY="68.0" prefHeight="535.0" prefWidth="726.0">
+                        <AnchorPane layoutX="176.0" layoutY="64.0" prefHeight="535.0" prefWidth="807.0">
                            <children>
                               <AnchorPane layoutX="33.0" layoutY="10.0" prefHeight="514.0" prefWidth="660.0">
                                  <children>
@@ -67,15 +67,12 @@
                         </AnchorPane>
 
 
-                        <AnchorPane layoutX="201.0" layoutY="14.0" prefHeight="59.0" prefWidth="338.0">
-                           <children>
-                              <Text layoutX="60.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Client">
-                                 <font>
-                                    <Font name="Berlin Sans FB" size="38.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </AnchorPane>
+                        <AnchorPane layoutX="201.0" layoutY="14.0" prefHeight="59.0" prefWidth="338.0" />
+                        <Text layoutX="430.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Client">
+                           <font>
+                              <Font name="Berlin Sans FB" size="38.0" />
+                           </font>
+                        </Text>
 
 
                      </children>
@@ -88,22 +85,22 @@
 
 
 
-          <Tab text="Nos Client">
+          <Tab style="-fx-background-color: #6479FE; -fx-color: white;" styleClass="-fx-font-color" text="Nos Client">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <AnchorPane layoutX="2.0" layoutY="19.0" prefHeight="579.0" prefWidth="733.0">
                            <children>
-                              <TableView fx:id="dataGrid" layoutX="7.0" layoutY="14.0" prefHeight="200.0" prefWidth="719.0">
+                              <TableView fx:id="dataGrid" layoutX="7.0" layoutY="14.0" prefHeight="200.0" prefWidth="1002.0">
                                  <columns>
-                                    <TableColumn fx:id="col_id" prefWidth="75.0" text="Identité" />
-                                    <TableColumn fx:id="col_nom" prefWidth="75.0" text="Nom" />
-                                    <TableColumn fx:id="col_prenom" prefWidth="75.0" text="Prénom" />
-                                    <TableColumn fx:id="col_tel" prefWidth="105.5999755859375" text="Téléphone" />
-                                    <TableColumn fx:id="col_email" prefWidth="100.800048828125" text="Email" />
-                                    <TableColumn fx:id="col_adresse" prefWidth="117.60000610351562" text="Adresse" />
-                                    <TableColumn fx:id="col_entreprise" prefWidth="72.79998779296875" text="Nom d’entreprise" />
-                                    <TableColumn fx:id="col_date" prefWidth="99.2000732421875" text="Date de début de travail" />
+                                    <TableColumn fx:id="col_id" prefWidth="72.7999849319458" text="Identité" />
+                                    <TableColumn fx:id="col_nom" prefWidth="97.5999755859375" text="Nom" />
+                                    <TableColumn fx:id="col_prenom" minWidth="8.000030517578125" prefWidth="98.40003967285156" text="Prénom" />
+                                    <TableColumn fx:id="col_tel" prefWidth="140.79998779296875" text="Téléphone" />
+                                    <TableColumn fx:id="col_email" prefWidth="164.00009155273438" text="Email" />
+                                    <TableColumn fx:id="col_adresse" minWidth="0.0" prefWidth="134.4000244140625" text="Adresse" />
+                                    <TableColumn fx:id="col_entreprise" prefWidth="139.199951171875" text="Nom d’entreprise" />
+                                    <TableColumn fx:id="col_date" prefWidth="162.4000244140625" text="Date de début de travail" />
                                  </columns>
                               </TableView>
                            </children>
