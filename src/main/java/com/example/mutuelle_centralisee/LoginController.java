@@ -1,5 +1,4 @@
 package com.example.mutuelle_centralisee;
-import java.io.*;
 
 
 import javafx.event.ActionEvent;
@@ -12,7 +11,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -20,11 +18,9 @@ import org.json.simple.parser.ParseException;
 
 
 
-public class Controller {
+public class LoginController {
 
     //Login Attributes
-    @FXML
-    private Button button;
     @FXML
     private TextField email;
     @FXML
@@ -35,50 +31,16 @@ public class Controller {
 
 
 
-
-
-
-
-    //Client Attributes
-    @FXML
-    private Button submit;
-    @FXML
-    private TextField id;
-    @FXML
-    private TextField nom;
-    @FXML
-    private TextField prenom;
-    @FXML
-    private ChoiceBox<String> country_list=new ChoiceBox<String>();
-    @FXML
-    private TextField tel;
-    @FXML
-    private TextField entreprise;
-    @FXML
-    private TextArea Adresse;
-    @FXML
-    private DatePicker date;
-    @FXML
-    private RadioButton cin;
-    @FXML
-    private RadioButton pass;
-
-
-
-
-
     public void userLogIn(ActionEvent event) throws IOException {
         checkLogin();
     }
-    public void client(ActionEvent event) throws IOException {
-        addClient();
-    }
 
 
 
 
 
 
+    //Check login information from json file
     public void checkLogin() throws IOException {
 
 
@@ -112,62 +74,12 @@ public class Controller {
                     m.changeScene("client-view.fxml");
                     break;
                 } else {
-                    message.setText("Wrong email or password");
+                    message.setText("Invalide email or password ,Try again !");
                 }
             }
 
 
         } catch (FileNotFoundException | ParseException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
-
-
-    public void addClient() {
-
-        Client client = new Client();
-
-
-        ArrayList<String> myClients = new ArrayList<String>();
-
-
-
-
-    }
-
-
-
-
-
-
-
-
-
-    public void initialize(){
-
-        JSONParser jsonParser = new JSONParser();
-
-
-
-        try (FileReader reader = new FileReader("D:\\Java Project\\Mutuelle centralisee\\src\\main\\resources\\JSON\\Code Pays.json"))
-        {
-            //Read JSON file
-            Object obj = jsonParser.parse(reader);
-            JSONArray country = (JSONArray) obj;
-
-
-            for (Object o : country) {
-                JSONObject country_obj = (JSONObject) o;
-                String country_code = (String) country_obj.get("dial_code");
-//System.out.println(country_code);
-                country_list.getItems().add(country_code);
-            }
-
-
-        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }

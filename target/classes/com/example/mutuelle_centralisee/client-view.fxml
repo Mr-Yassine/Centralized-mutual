@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mutuelle_centralisee.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mutuelle_centralisee.ClientController">
    <left>
       <AnchorPane prefHeight="330.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
    </left>
@@ -44,7 +44,7 @@
                                     <TextField fx:id="id" layoutX="391.0" layoutY="244.0" prefWidth="234.0" promptText="Numéro" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
                                     <TextField fx:id="entreprise" layoutX="34.0" layoutY="340.0" prefHeight="28.0" prefWidth="234.0" promptText="Nom d’entreprise" style="-fx-background-color: transparent; -fx-border-color: #6479FE; -fx-border-width: 0px 0px 2px 0px;" />
 
-                                     <Button fx:id="submit" layoutX="269.0" layoutY="411.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #6479FE;" text="Submit" textFill="WHITE">
+                                     <Button fx:id="submit" layoutX="269.0" layoutY="411.0" mnemonicParsing="false" onAction="#client" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #6479FE;" text="Submit" textFill="WHITE">
                                        <font>
                                           <Font name="Berlin Sans FB" size="19.0" />
                                        </font>
