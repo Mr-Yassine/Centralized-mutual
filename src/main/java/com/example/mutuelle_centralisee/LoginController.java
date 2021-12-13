@@ -9,6 +9,9 @@ import javafx.scene.control.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
@@ -28,11 +31,10 @@ public class LoginController {
 
 
 
+
     public void userLogIn(ActionEvent event) throws IOException {
         checkLogin();
     }
-
-
 
 
 
@@ -86,3 +88,23 @@ public class LoginController {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

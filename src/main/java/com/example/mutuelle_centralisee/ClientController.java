@@ -24,10 +24,9 @@ import java.util.ResourceBundle;
 
 public class ClientController implements Initializable {
 
+
+
     @FXML private TableView<Client> dataGrid;
-
-
-
 
     @FXML private TableColumn<Client, String>  col_id;
     @FXML private TableColumn<Client, String>  col_nom;
@@ -107,7 +106,7 @@ public class ClientController implements Initializable {
     public void addClient(ActionEvent event) throws IOException {
 
 
-        RadioButton selectedRadioButton = (RadioButton) choix.getSelectedToggle();
+        //RadioButton selectedRadioButton = (RadioButton) choix.getSelectedToggle();
 
 
         if (Validation()) {
@@ -156,6 +155,8 @@ public class ClientController implements Initializable {
 
 
     private boolean Validation() {
+
+
         if(!Helpers.LengthValidation(entreprise.getText(),50)){
             Helpers.Error("Erreur de validation", "Longueur incorrect.", "champ nameCompany.");
             return  false;

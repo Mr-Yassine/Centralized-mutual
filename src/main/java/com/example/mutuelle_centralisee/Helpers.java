@@ -14,6 +14,15 @@ public class Helpers {
     }
 
 
+    public static void Vide(String title,String headerText,String contentText){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(headerText);
+        alert.setContentText(contentText);
+        alert.showAndWait();
+    }
+
+
 
     public static void Success(String title,String contentText){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -23,6 +32,9 @@ public class Helpers {
 
     }
 
+
+    // Valider la taille :
+    public static boolean VideValidation(String value,int length){return value.length()<=length;}
 
     // Valider la taille :
     public static boolean LengthValidation(String value,int length){

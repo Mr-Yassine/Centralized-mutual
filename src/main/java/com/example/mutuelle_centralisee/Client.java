@@ -50,56 +50,40 @@ public class Client {
     }
 
 
-    public String getId() {
-        return id;
-    }
+    public String getId() {return id;}
     public void setId(String id) {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
-    }
+    public String getNom() {return nom;}
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    public String getPrenom() {
-        return prenom;
-    }
+    public String getPrenom() {return prenom;}
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
 
-    public String getCountry_list() {
-        return country_list;
-    }
-    public void setCountry_list(String country_list) {
-        this.country_list = country_list;
-    }
+    public String getCountry_list() {return country_list;}
+    public void setCountry_list(String country_list) {this.country_list = country_list;}
 
     public String getTel() {return tel;}
     public void setTel(String tel) {
         this.tel = tel;
     }
 
-    public String getEntreprise() {
-        return entreprise;
-    }
+    public String getEntreprise() {return entreprise;}
     public void setEntreprise(String entreprise) {
         this.entreprise = entreprise;
     }
 
-    public String getAdresse() {
-        return Adresse;
-    }
+    public String getAdresse() {return Adresse;}
     public void setAdresse(String adresse) {
         Adresse = adresse;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
+    public LocalDate getDate() {return date;}
     public void setDate(LocalDate date) {
         this.date = date;
     }
