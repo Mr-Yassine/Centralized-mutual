@@ -1,5 +1,13 @@
 # Mutuelle centralisée
 
+
+### Ressource(s):
+  R1: https://www.travail.gov.ma/mtip-espace-protection-sociale/gouvernance-des-organismes-de-protection-sociale-sous-tutelle/ministere-emploi-insertion-professionnelle-mutualite/?lang=fr#1574249540328-92658bb0-f39c
+  
+
+
+
+
 ## Contexte du projet
   La population de votre ville a dépassé les 320 mille hab/m², le recouvrement médical est partout ainsi que les dossiers envoyés par les personnes cumulent jour après jour, du coup la DSI de la préfecture en collaboration avec la gouvernance des organismes de protection sociale sous tutelle (ressource 1) vont lancer un projet numérique qui vise la gestion des dossiers et des clients pour faciliter leur remboursement en respectant les conditions mutuelles de chacun d’eux.
   Bref, votre mission tant que consultant externe chez la préfecture de votre ville est collaborer dans la phase de développement du projet, et mettre en place l’application afin que les opérateurs puissent commencer de l’utiliser. La technologie demandée par le client est du Java 100%, et bien évidement ils ont proposé aussi que l’outil sera un exécutable sur le bureau (application Desktop).
